@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use yii\web\Controller;
+
+
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -37,7 +39,10 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    public function actionSay($message = 'Привет')
+    {
+        return $this->render('say', ['message' => $message]);
+    }
     /**
      * {@inheritdoc}
      */
@@ -125,4 +130,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+   
 }
